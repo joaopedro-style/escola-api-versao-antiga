@@ -1,0 +1,23 @@
+{
+  "type": "module",
+  "name": "api-alunos",
+  "version": "1.0.0",
+  "description": "API usando Node.js + Express + MYSQL",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joaopedro-style/escola-api-versao-antiga.git"
+  },
+  "author": "João Pedro",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joaopedro-style/escola-api-versao-antiga/issues"
+  },
+  "homepage": "https://github.com/joaopedro-style/escola-api-versao-antiga#readme",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
