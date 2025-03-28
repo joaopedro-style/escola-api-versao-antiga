@@ -1,12 +1,17 @@
 import express from 'express';
+import { ler } from './src/aluno.js';
 
 const app = express();
 const porta = 3000;
 
+/* Configurando ROTAS */
+
+/* Raiz da API */
 app.get('/', (req, res) => {
     res.send(`API utilizando Node.js, Express e MYSQL`);
 });
 
+// exibindo Todos os alunos
 app.get('/alunos', (req, res) => {
     //res.send(`Exibindo todos os alunos`);
     ler(res);
