@@ -8,22 +8,27 @@ app.get('/', (req, res) => {
 });
 
 app.get('/alunos', (req, res) => {
-    res.send(`Exibindo todos os alunos`);
+    //res.send(`Exibindo todos os alunos`);
+    ler(res);
 });
 
-app.get('/alunos/1', (req, res) => {
+// Exibindo um aluno
+app.get('/alunos/:id', (req, res) => {
     res.send(`Exibindo dados de UM aluno`);
 });
 
+// INSERINDO/CADASTRANDO/ADICIONANDO um aluno
 app.post('/alunos', (req, res) => {
-    res.send(`Exibindo dados de UM aluno`);
+    res.send(`Inserindo UM aluno`);
 });
 
-app.patch('alunos/1', (req, res) => {
+// Atualizando aluno
+app.patch('alunos/:id', (req, res) => {
     res.send(`Atualizando dados do aluno`);
 });
 
-app.delete('alunos/1', (req, res) => {
+// Excluindo aluno
+app.delete('alunos/:id', (req, res) => {
     res.send(`Aluno excluido com sucesso!`);
 });
 
