@@ -27,4 +27,51 @@ function ler(res) {
     });
 }
 
-export { ler };
+// Função para cadastrar alunos no banco
+function inserir(aluno, res) {
+    const sql = "INSERT INTO alunos SET ?";
+
+    conexao.query(sql, aluno, (erro) => {
+        if (erro) {
+            res.status(400).json(erro.code);
+        } else {
+            res.status(201).json({"status" : "aluno inserido"});
+        }
+    });
+}
+
+// Função para exibir UM aluno
+function lerUM(id, res){
+    const sql = "SELECT * FROM alunos WHERE id = ?";
+
+    conexao.query(sql, id, (erro, resultados) => {
+
+        // checando se há conteúdo
+        if (resultados === 0) {
+            res.status(204).end();
+            return; // forçar a interrupção do código
+        }
+
+        // If para erro ou resultado
+        if (erro) {
+            res.status(400).json(erro.code);
+        } else {
+            res.status(200).json(resultados[0]);
+        }
+    });
+}
+
+// Função que exclui um aluno
+function excluirUmAluno(id, res) {
+    const sql = "DELETE FROM alunos WHERE id = ?";
+
+    conexao.query(sql, id, (erro, resultados) => {
+        if (erro) {
+            res.status(400).json(erro.code);
+        } else {
+            res.status(200).json({"status" : "Aluno excluido", id});
+        }
+    });
+}
+
+export { ler, inserir, lerUM, excluirUmAluno };
