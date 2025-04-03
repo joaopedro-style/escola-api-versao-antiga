@@ -1,8 +1,9 @@
 import express from 'express';
 import { ler, inserir, lerUM, excluirUmAluno, atualizar } from './src/aluno.js';
+import cors from 'cors';
 
 const app = express();
-const porta = 3000;
+const porta = precess.env.PORT || 3000;
 
 // habilitando para dar suporte ao formato JSON
 app.use(express.json());
@@ -10,11 +11,14 @@ app.use(express.json());
 // habilitando para dar suporte a dados inseridos a partir de inputs de formuário
 app.use(express.urlencoded({extended:true}));
 
+app.use(cors());
+
 /* Configurando ROTAS */
 
 /* Raiz da API */
 app.get('/', (req, res) => {
-    res.send(`API utilizando Node.js, Express e MYSQL`);
+   // res.send(`API utilizando Node.js, Express e MYSQL`);
+   res.redirect('https://documenter.getpostman.com/view/43562453/2sB2cSi4HF');
 });
 
 // exibindo Todos os alunos
